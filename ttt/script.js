@@ -21,7 +21,6 @@ boxes.forEach((btn) => {
 });
 
 function checkWin() {
-    rst.innerText = "win";
     for(const pattern of winPat) {
         if(boxes[pattern[0]].innerText !== "" && boxes[pattern[0]].innerText === boxes[pattern[1]].innerText && boxes[pattern[0]].innerText === boxes[pattern[2]]) {
             rst.innerText = "win";
