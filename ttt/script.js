@@ -1,5 +1,5 @@
 let boxes = document.querySelectorAll(".box");
-let rst = document.querySelectorAll("#rst");
+let rst = document.querySelector("#rst");
 
 let turnO = true;
 
@@ -9,7 +9,7 @@ const winPat = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
 boxes.forEach((btn) => {
     btn.addEventListener("click", function () {
     if(turnO && btn.innerText === "") {
-        btn.innerText = "0";
+        btn.innerText = "O";
         turnO = false;
     }
     else if(btn.innerText === "") {
@@ -22,7 +22,7 @@ boxes.forEach((btn) => {
 
 function checkWin() {
     for(const pattern of winPat) {
-        if(boxes[pattern[0]].innerText === boxes[pattern[1]].innerText && boxes[pattern[0]].innerText === boxes[pattern[2]]) {
+        if(boxes[pattern[0]].innerText !== "" && boxes[pattern[0]].innerText === boxes[pattern[1]].innerText && boxes[pattern[0]].innerText === boxes[pattern[2]]) {
             rst.innerText = "win";
         }
     }
