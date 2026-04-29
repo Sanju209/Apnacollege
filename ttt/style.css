@@ -15,7 +15,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: lightblue;
+    background: rgba(88, 164, 176);
     gap: 75px;
 }
 
@@ -37,11 +37,19 @@ body {
     border: none;
     font-size: 40px;
     box-shadow: 8px 8px 6px rgba(0, 0, 0, 0.2);
+    background-color: rgba(169, 188, 208, 1);
+    color: rgba(55, 63, 81);
 }
 
 #rst {
     width : 30%;
     height: 6%;
-    border-radius: 30%;
+    border-radius: 15%;
     border: none;
+    color: rgba(55, 63, 81);
+    background-color: rgba(169, 188, 208, 1);
+}
+
+h1 {
+    color: rgba(55, 63, 81);
 }
