@@ -1,5 +1,7 @@
 let boxes = document.querySelectorAll(".box");
 let rst = document.querySelector("#rst");
+let tit = document.querySelector("h1");
+let flag = 0;
 
 let turnO = true;
 
@@ -11,19 +13,47 @@ boxes.forEach((btn) => {
     if(turnO && btn.innerText === "") {
         btn.innerText = "O";
         turnO = false;
+        flag++;
     }
     else if(btn.innerText === "") {
         btn.innerText = "X";
         turnO = true;
+        flag++;
     }
+
     checkWin();
+    checkDraw();
+
     });
 });
 
+function checkDraw() {
+    let flag = 0;
+    for(box of boxes) {
+        if(box.innerText !== "") {
+            flag++;
+        }
+    }
+    if(flag == 9) {
+        tit.innerText = "Draw. Please restart";
+    }
+}
+
 function checkWin() {
     for(const pattern of winPat) {
-        if(boxes[pattern[0]].innerText !== "" && boxes[pattern[0]].innerText === boxes[pattern[1]].innerText && boxes[pattern[0]].innerText === boxes[pattern[2]]) {
-            rst.innerText = "win";
+        if(boxes[pattern[0]].innerText !== "" && boxes[pattern[0]].innerText === boxes[pattern[1]].innerText && boxes[pattern[0]].innerText === boxes[pattern[2]].innerText) {
+            tit.innerText = "Congrats! " + boxes[pattern[0]].innerText + " won";
+            boxes.forEach((box) => {
+                box.disabled = true;
+            })
         }
     }
 }
+
+rst.addEventListener("click", function () {
+    for(box of boxes) {
+        box.innerText = "";
+        box.disabled = false;
+    }
+    tit.innerText = "Tic Tac Toe";
+})
